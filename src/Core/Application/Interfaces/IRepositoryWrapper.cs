@@ -8,13 +8,18 @@ namespace Application.Interfaces
 {
     public interface IRepositoryWrapper
     {
-        //IFileRepository File { get; }
+        IFileService FileService { get; }
 
-        //IAccountRepository Account { get; }
-        //IAppUserRepository AppUser { get; }
-        //IMailRepository Mail { get; }
+        IAccountService AccountService { get; }
+        IEmailService EmailService { get; }
 
-        IProductRepository Product { get; }
+        ICategoryRepository Category { get; }
+        IEventRepository Event { get; }
+        IOrderRepository Order { get; }
+        IPaymentRepository Payment { get; }
+        IPaymentTypeRepository PaymentType { get; }
+        IPlaceRepository Place { get; }
+        IWorkstationRepository Workstation { get; }
 
         string Path { set; }
 

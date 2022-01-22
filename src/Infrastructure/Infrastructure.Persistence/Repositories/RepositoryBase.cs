@@ -18,37 +18,37 @@ namespace Infrastructure.Persistence.Repositories
             RepositoryContext = repositoryContext;
         }
 
-        public IQueryable<T> FindAll()
+        public IQueryable<T> BaseFindAll()
         {
             return RepositoryContext.Set<T>().AsNoTracking();
         }
 
-        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression)
+        public IQueryable<T> BaseFindByCondition(Expression<Func<T, bool>> expression)
         {
             return RepositoryContext.Set<T>().Where(expression).AsNoTracking();
         }
 
-        public async Task CreateAsync(T entity)
+        public async Task BaseCreateAsync(T entity)
         {
             await RepositoryContext.Set<T>().AddAsync(entity);
         }
 
-        public async Task CreateAsync(IEnumerable<T> entities)
+        public async Task BaseCreateAsync(IEnumerable<T> entities)
         {
             await RepositoryContext.Set<T>().AddRangeAsync(entities);
         }
 
-        public async Task UpdateAsync(T entity)
+        public async Task BaseUpdateAsync(T entity)
         {
             await Task.Run(() => RepositoryContext.Set<T>().Update(entity));
         }
 
-        public async Task UpdateAsync(IEnumerable<T> entities)
+        public async Task BaseUpdateAsync(IEnumerable<T> entities)
         {
             await Task.Run(() => RepositoryContext.Set<T>().UpdateRange(entities));
         }
 
-        public async Task DeleteAsync(T entity)
+        public async Task BaseDeleteAsync(T entity)
         {
             await Task.Run(() => RepositoryContext.Set<T>().Remove(entity));
         }

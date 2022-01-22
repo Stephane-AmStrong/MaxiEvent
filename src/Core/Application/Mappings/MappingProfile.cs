@@ -1,6 +1,6 @@
-﻿using Application.Features.Products.Commands.CreateProduct;
-using Application.Features.Products.Queries.GetProductById;
-using Application.Features.Products.Queries.GetProducts;
+﻿using Application.Features.Categories.Commands.CreateCategory;
+using Application.Features.Categories.Queries.GetCategoryById;
+using Application.Features.Categories.Queries.GetCategories;
 using AutoMapper;
 using Domain.Entities;
 
@@ -10,9 +10,9 @@ namespace Application.Mappings
     {
         public MappingProfile()
         {
-            CreateMap<Product, GetProductsViewModel>().ReverseMap();
-            CreateMap<Product, GetProductViewModel>().ReverseMap();
-            CreateMap<Product, CreateProductCommand>().ReverseMap();
+            CreateMap<Category, GetCategoriesViewModel>().ReverseMap();
+            CreateMap<Category, GetCategoryViewModel>().ReverseMap();
+            CreateMap<Category, CreateCategoryCommand>().ReverseMap();
         }
     }
 }

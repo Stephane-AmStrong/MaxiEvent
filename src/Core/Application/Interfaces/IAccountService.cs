@@ -1,11 +1,18 @@
 ﻿using Application.DTOs.Account;
+using Application.Features.AppUsers.Queries.GetAppUsers;
 using Application.Wrappers;
+using Domain.Entities;
 using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
     public interface IAccountService
     {
+        Task<AppUser> GetAppUserByIdAsync(string id);
+        Task<PagedList<AppUser>> GetPagedListAsync(GetAppUsersQuery paginationParameters);
+        Task<int> CountUsersAsync();
+        Task<AuthenticationResponse> UpdateAsync(AppUser appUser);
+
         Task<Response<AuthenticationResponse>> AuthenticateAsync(AuthenticationRequest request, string ipAddress);
         Task<Response<string>> RegisterAsync(RegisterRequest request, string origin);
         Task<Response<string>> ConfirmEmailAsync(string userId, string code);

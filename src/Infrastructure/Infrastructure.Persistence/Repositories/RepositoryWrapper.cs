@@ -11,10 +11,10 @@ namespace Infrastructure.Persistence.Repositories
 {
     public class RepositoryWrapper : IRepositoryWrapper
     {
-        //private IFileRepository _fileRepository;
+        //private IFileService _fileRepository;
         //private IAccountRepository _accountRepository;
 
-        private IProductRepository _product;
+        private ICategoryRepository _product;
         //private IMailRepository _mail;
 
         private IWebHostEnvironment _webHostEnvironment;
@@ -24,7 +24,7 @@ namespace Infrastructure.Persistence.Repositories
         //private IOptions<EmailSettings> _emailSettings;
 
         private readonly ISortHelper<AppUser> _appUserSortHelper;
-        private readonly ISortHelper<Product> _productSortHelper;
+        private readonly ISortHelper<Category> _productSortHelper;
         private readonly ISortHelper<Payment> _paymentSortHelper;
         //private readonly ISortHelper<Workstation> _workstationSortHelper;
 
@@ -39,13 +39,13 @@ namespace Infrastructure.Persistence.Repositories
             set { filePath = value; }
         }
 
-        public IProductRepository Product
+        public ICategoryRepository Category
         {
             get
             {
                 if (_product == null)
                 {
-                    _product = new ProductRepository(_repoContext, _productSortHelper);
+                    _product = new CategoryRepository(_repoContext, _productSortHelper);
                 }
                 return _product;
             }
@@ -62,7 +62,7 @@ namespace Infrastructure.Persistence.Repositories
             IConfiguration configuration,
 
             ISortHelper<AppUser> appUserSortHelper,
-            ISortHelper<Product> productSortHelper,
+            ISortHelper<Category> productSortHelper,
             ISortHelper<Payment> paymentSortHelper,
             IHttpContextAccessor httpContextAccessor)
         {

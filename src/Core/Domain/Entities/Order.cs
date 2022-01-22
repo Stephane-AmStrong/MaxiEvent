@@ -11,7 +11,7 @@ namespace Domain.Entities
         public Order()
         {
             Payments = new HashSet<Payment>();
-            //Places = new HashSet<Place>();
+            Places = new HashSet<Place>();
         }
 
         public DateTime Date { get; set; }
@@ -22,6 +22,6 @@ namespace Domain.Entities
         public AppUser AppUser { get; set; }
 
         public virtual ICollection<Payment> Payments { get; set; }
-        //public virtual ICollection<Place> Places { get; set; }
+        public virtual ICollection<Place> Places { get; set; }
     }
 }

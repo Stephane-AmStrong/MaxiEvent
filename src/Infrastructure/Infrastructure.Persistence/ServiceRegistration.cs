@@ -28,7 +28,7 @@ namespace Infrastructure.Persistence
             services.AddTransient(typeof(IGenericRepositoryAsync<>), typeof(GenericRepositoryAsync<>));
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             services.AddScoped<ISortHelper<AppUser>, SortHelper<AppUser>>();
-            services.AddScoped<ISortHelper<Product>, SortHelper<Product>>();
+            services.AddScoped<ISortHelper<Category>, SortHelper<Category>>();
             services.AddScoped<ISortHelper<Payment>, SortHelper<Payment>>();
 
             #endregion

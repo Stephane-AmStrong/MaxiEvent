@@ -22,11 +22,7 @@ namespace Domain.Entities
         public DateTime Date { get; set; }
         [Required]
         public float Price { get; set; }
-        [Required]
-        public bool IsPublic { get; set; }
         public string StatusEvent { get; set; }
-        [Required]
-        public int NoTicket { get; set; }
         public int NoPriority { get; set; }
 
         [Required]
@@ -36,12 +32,11 @@ namespace Domain.Entities
         public Category Category { get; set; }
 
         [Required]
-        public String AppUserId { get; set; }
+        public string AppUserId { get; set; }
 
         [ForeignKey("AppUserId")]
         public AppUser AppUser { get; set; }
 
-        public Guid SponsorId { get; set; }
         public virtual ICollection<Place> Places { get; set; }
     }
 }

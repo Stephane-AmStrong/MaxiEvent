@@ -9,10 +9,10 @@ namespace Application.Interfaces
 {
     public interface IRepositoryBase<T>
     {
-        IQueryable<T> FindAll();
-        IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression);
-        Task CreateAsync(T entity);
-        Task UpdateAsync(T entity);
-        Task DeleteAsync(T entity);
+        IQueryable<T> BaseFindAll();
+        IQueryable<T> BaseFindByCondition(Expression<Func<T, bool>> expression);
+        Task BaseCreateAsync(T entity);
+        Task BaseUpdateAsync(T entity);
+        Task BaseDeleteAsync(T entity);
     }
 }
